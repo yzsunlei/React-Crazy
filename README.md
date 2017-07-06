@@ -1,2 +1,2 @@
 # React-Crazy
-there is nothing, just react
+there is nothing, just react demo
