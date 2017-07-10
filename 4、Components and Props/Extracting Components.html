@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var props = {
+        author: {
+          avatarUrl: 'https://facebook.github.io/react/img/logo.svg',
+          name: '孙磊',
+        },
+        text: '你写的不错嘛',
+        date: '2017-07-10'
+      };
+
+      function Comment_1(props) {
+        return (
+          <div className="Comment">
+            <div className="UserInfo">
+              <img className="Avatar"
+                src={props.author.avatarUrl}
+                alt={props.author.name}
+              />
+              <div className="UserInfo-name">
+                {props.author.name}
+              </div>
+            </div>
+            <div className="Comment-text">
+              {props.text}
+            </div>
+            <div className="Comment-date">
+              {props.date}
+            </div>
+          </div>
+        );
+      }
+
+      function Avatar(props) {
+        return (
+          <img className="Avatar"
+            src={props.user.avatarUrl}
+            alt={props.user.name}
+          />
+        );
+      }
+
+      function UserInfo(props) {
+        return (
+          <div className="UserInfo">
+            <Avatar user={props.user} />
+            <div className="UserInfo-name">
+              {props.user.name}
+            </div>
+          </div>
+        );
+      }
+
+      function Comment_2(props) {
+        return (
+          <div className="Comment">
+            <UserInfo user={props.author} />
+            <div className="Comment-text">
+              {props.text}
+            </div>
+            <div className="Comment-date">
+              {props.date}
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.render(
+        //<Comment_1 {...props}/>,
+        <Comment_2 {...props}/>,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
