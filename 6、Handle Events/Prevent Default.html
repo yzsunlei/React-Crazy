@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function ActionLink() {
+        function handleClick(e) {
+          e.preventDefault();
+          console.log('The link was clicked.');
+        }
+
+        return (
+          <a href="#" onClick={handleClick}>
+            Click me
+          </a>
+        );
+      }
+
+      ReactDOM.render(
+        <ActionLink /> ,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
