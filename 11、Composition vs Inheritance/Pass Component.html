@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function Contacts() {
+        return (
+          <div className="contact">Tel: 13758183549</div>
+        );
+      }
+
+      function Chat() {
+        return (
+          <div className="chat">QQ: 846990846</div>
+        )
+      }
+
+      function SplitPane(props) {
+        return (
+          <div className="SplitPane">
+            <div className="SplitPane-Left">
+              {props.left}
+            </div>
+            <div className="SplitPane-right">
+              {props.right}
+            </div>
+          </div>
+        )
+      }
+
+      function App() {
+        return (
+          <SplitPane
+            left={
+              <Contacts/>
+            }
+            right={
+              <Chat/>
+            } />
+        )
+      }
+
+      ReactDOM.render(
+        <App/>,
+        document.getElementById('root')
+      );
+    </script>
+  </body>
+</html>
