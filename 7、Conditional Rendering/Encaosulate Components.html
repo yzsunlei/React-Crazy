@@ -10,17 +10,27 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      function UserGreeting(props) {
+function UserGreeting(props) {
   return <h1>Welcome back!</h1>;
 }
 
 function GuestGreeting(props) {
   return <h1>Please sign up.</h1>;
-}ReactDOM.render(
+}
 
-        <h1>Hello, world!</h1>,
-        document.getElementById('root')
-      );
+function Greeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting />;
+  }
+  return <GuestGreeting />;
+}
+
+ReactDOM.render(
+  // Try changing to isLoggedIn={true}:
+  <Greeting isLoggedIn={false} />,
+  document.getElementById('root')
+);
     </script>
   </body>
 </html>
